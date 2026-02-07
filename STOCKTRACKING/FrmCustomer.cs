@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using STOCKTRACKING.DAL.DTO;
+using STOCKTRACKING.BLL;
+using STOCKTRACKING.DAL;
 
 namespace STOCKTRACKING
 {
@@ -20,6 +23,54 @@ namespace STOCKTRACKING
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        CustomerBLL bll = new CustomerBLL();
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (txtCustomerName.Text.Trim() == "")
+                MessageBox.Show("Customer Name is empty");
+            else
+            {
+               if(!isUpdate)
+                {
+                    CustomerDetailDTO customer = new CustomerDetailDTO();
+                    customer.CustomerName = txtCustomerName.Text;
+                    if (bll.Insert(customer))
+                    {
+                        MessageBox.Show("Customer was added");
+                        txtCustomerName.Clear();
+                    }
+                }
+                else
+                {
+                   if(detail.CustomerName == txtCustomerName.Text)
+                        MessageBox.Show("There is No Change");
+                   else
+                    {
+                        DialogResult result = MessageBox.Show("Are you update this customer", "Warning", MessageBoxButtons.YesNo);
+                        if(result == DialogResult.Yes)
+                        {
+                            detail.CustomerName = txtCustomerName.Text;
+                            if (bll.Update(detail))
+                            {
+                                MessageBox.Show("Customer was Updated");
+                                this.Close();
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        public CustomerDetailDTO detail = new CustomerDetailDTO();
+        public bool isUpdate = false;
+        private void FrmCustomer_Load(object sender, EventArgs e)
+        {
+            if (isUpdate)
+                txtCustomerName.Text = detail.CustomerName;
+
         }
     }
 }

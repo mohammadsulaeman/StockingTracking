@@ -55,34 +55,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CategoryBLL.cs" />
+    <Compile Include="BLL\CustomerBLL.cs" />
     <Compile Include="BLL\IBLL.cs" />
-    <Compile Include="DAL\CATEGORY.cs">
+    <Compile Include="BLL\ProductBLL.cs" />
+    <Compile Include="BLL\SalesBLL.cs" />
+    <Compile Include="CATEGORY.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\CUSTOMER.cs">
+    <Compile Include="CUSTOMER.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAO\CategoryDAO.cs" />
+    <Compile Include="DAL\DAO\CustomerDAO.cs" />
     <Compile Include="DAL\DAO\IDAO.cs" />
-    <Compile Include="DAL\DataModel.Context.cs">
+    <Compile Include="DAL\DAO\ProductDAO.cs" />
+    <Compile Include="DAL\DAO\SalesDAO.cs" />
+    <Compile Include="DAL\DAO\StockContext.cs" />
+    <Compile Include="DAL\DTO\CategoryDetailDTO.cs" />
+    <Compile Include="DAL\DTO\CategoryDTO.cs" />
+    <Compile Include="DAL\DTO\CustomerDetailDTO.cs" />
+    <Compile Include="DAL\DTO\CustomerDTO.cs" />
+    <Compile Include="DAL\DTO\ProductDetailDTO.cs" />
+    <Compile Include="DAL\DTO\ProductDTO.cs" />
+    <Compile Include="DAL\DTO\SalesDetailDTO.cs" />
+    <Compile Include="DAL\DTO\SalesDTO.cs" />
+    <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DataModel.cs">
+    <Compile Include="DataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DataModel.Designer.cs">
+    <Compile Include="DataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\PRODUCT.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\SALE.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FrmAddStock.cs">
       <SubType>Form</SubType>
@@ -157,8 +168,14 @@
       <DependentUpon>FrmStockAlert.cs</DependentUpon>
     </Compile>
     <Compile Include="General.cs" />
+    <Compile Include="PRODUCT.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SALE.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmAddStock.resx">
       <DependentUpon>FrmAddStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,13 +222,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="DAL\DataModel.edmx">
+    <EntityDeploy Include="DataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DAL\DataModel.edmx.diagram">
+    <None Include="DataModel.edmx.diagram">
       <DependentUpon>DataModel.edmx</DependentUpon>
     </None>
+    <None Include="DB\stocktracking.bak" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -227,16 +245,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\DataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DAL\DataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.cs</LastGenOutput>
-    </Content>
     <None Include="images\icon\tag.png" />
     <None Include="images\icon\population.png" />
     <None Include="images\icon\gift.png" />
@@ -249,7 +257,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\DTO\" />
+    <Content Include="DataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

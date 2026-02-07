@@ -55,6 +55,7 @@ namespace STOCKTRACKING
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtCustomerName
             // 
@@ -85,6 +86,7 @@ namespace STOCKTRACKING
             this.Name = "FrmCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer";
+            this.Load += new System.EventHandler(this.FrmCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

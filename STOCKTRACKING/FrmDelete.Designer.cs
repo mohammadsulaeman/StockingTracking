@@ -30,12 +30,12 @@ namespace STOCKTRACKING
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmbDeleteData = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnGetBack = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,27 +51,6 @@ namespace STOCKTRACKING
             this.panel1.Size = new System.Drawing.Size(800, 60);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.btnGetBack);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 380);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 70);
-            this.panel2.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 60);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 320);
-            this.dataGridView1.TabIndex = 2;
-            // 
             // cmbDeleteData
             // 
             this.cmbDeleteData.FormattingEnabled = true;
@@ -79,6 +58,7 @@ namespace STOCKTRACKING
             this.cmbDeleteData.Name = "cmbDeleteData";
             this.cmbDeleteData.Size = new System.Drawing.Size(156, 21);
             this.cmbDeleteData.TabIndex = 0;
+            this.cmbDeleteData.SelectedIndexChanged += new System.EventHandler(this.cmbDeleteData_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -89,6 +69,16 @@ namespace STOCKTRACKING
             this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Delete Data";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnClose);
+            this.panel2.Controls.Add(this.btnGetBack);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 380);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 70);
+            this.panel2.TabIndex = 1;
             // 
             // btnClose
             // 
@@ -110,6 +100,19 @@ namespace STOCKTRACKING
             this.btnGetBack.TabIndex = 0;
             this.btnGetBack.Text = "Get Back";
             this.btnGetBack.UseVisualStyleBackColor = true;
+            this.btnGetBack.Click += new System.EventHandler(this.btnGetBack_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 60);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(800, 320);
+            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // FrmDelete
             // 

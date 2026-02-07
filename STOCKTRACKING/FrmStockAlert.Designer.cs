@@ -54,6 +54,7 @@ namespace STOCKTRACKING
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // dataGridView1
             // 
@@ -74,7 +75,9 @@ namespace STOCKTRACKING
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmStockAlert";
-            this.Text = "FrmStockAlert";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Stock Alert";
+            this.Load += new System.EventHandler(this.FrmStockAlert_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
