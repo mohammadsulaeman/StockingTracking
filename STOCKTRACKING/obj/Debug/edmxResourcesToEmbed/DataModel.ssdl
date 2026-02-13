@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="STOCKPRODUCTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="STOCKTRACKINGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="CATEGORY">
     <Key>
       <PropertyRef Name="ID" />
@@ -7,14 +7,14 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
-    <Property Name="DeletedDate" Type="date" />
+    <Property Name="DeleteDate" Type="date" />
   </EntityType>
   <EntityType Name="CUSTOMER">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar(max)" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
     <Property Name="DeletedDate" Type="date" />
   </EntityType>
@@ -44,7 +44,7 @@
     <Property Name="isDeleted" Type="bit" Nullable="false" />
     <Property Name="DeletedDate" Type="date" />
   </EntityType>
-  <EntityContainer Name="STOCKPRODUCTModelStoreContainer">
+  <EntityContainer Name="STOCKTRACKINGModelStoreContainer">
     <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />

@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="STOCKPRODUCTModelStoreContainer" CdmEntityContainer="STOCKPRODUCTEntities">
+  <EntityContainerMapping StorageEntityContainer="STOCKTRACKINGModelStoreContainer" CdmEntityContainer="STOCKTRACKINGEntities">
     <EntitySetMapping Name="CATEGORies">
-      <EntityTypeMapping TypeName="STOCKPRODUCTModel.CATEGORY">
+      <EntityTypeMapping TypeName="STOCKTRACKINGModel.CATEGORY">
         <MappingFragment StoreEntitySet="CATEGORY">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
           <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CUSTOMERs">
-      <EntityTypeMapping TypeName="STOCKPRODUCTModel.CUSTOMER">
+      <EntityTypeMapping TypeName="STOCKTRACKINGModel.CUSTOMER">
         <MappingFragment StoreEntitySet="CUSTOMER">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
@@ -22,7 +22,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PRODUCTs">
-      <EntityTypeMapping TypeName="STOCKPRODUCTModel.PRODUCT">
+      <EntityTypeMapping TypeName="STOCKTRACKINGModel.PRODUCT">
         <MappingFragment StoreEntitySet="PRODUCT">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -35,7 +35,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SALES">
-      <EntityTypeMapping TypeName="STOCKPRODUCTModel.SALE">
+      <EntityTypeMapping TypeName="STOCKTRACKINGModel.SALE">
         <MappingFragment StoreEntitySet="SALES">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="STOCKPRODUCTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="STOCKTRACKINGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CATEGORY">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,14 +12,14 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
-          <Property Name="DeletedDate" Type="date" />
+          <Property Name="DeleteDate" Type="date" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar(max)" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
           <Property Name="DeletedDate" Type="date" />
         </EntityType>
@@ -49,7 +49,7 @@
           <Property Name="isDeleted" Type="bit" Nullable="false" />
           <Property Name="DeletedDate" Type="date" />
         </EntityType>
-        <EntityContainer Name="STOCKPRODUCTModelStoreContainer">
+        <EntityContainer Name="STOCKTRACKINGModelStoreContainer">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
@@ -59,7 +59,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="STOCKPRODUCTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="STOCKTRACKINGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CATEGORY">
           <Key>
             <PropertyRef Name="ID" />
@@ -67,14 +67,14 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-          <Property Name="DeletedDate" Type="DateTime" Precision="0" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <Property Name="DeletedDate" Type="DateTime" Precision="0" />
         </EntityType>
@@ -104,7 +104,7 @@
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <Property Name="DeletedDate" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityContainer Name="STOCKPRODUCTEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="STOCKTRACKINGEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
           <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
           <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
@@ -115,19 +115,19 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="STOCKPRODUCTModelStoreContainer" CdmEntityContainer="STOCKPRODUCTEntities">
+        <EntityContainerMapping StorageEntityContainer="STOCKTRACKINGModelStoreContainer" CdmEntityContainer="STOCKTRACKINGEntities">
           <EntitySetMapping Name="CATEGORies">
-            <EntityTypeMapping TypeName="STOCKPRODUCTModel.CATEGORY">
+            <EntityTypeMapping TypeName="STOCKTRACKINGModel.CATEGORY">
               <MappingFragment StoreEntitySet="CATEGORY">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CUSTOMERs">
-            <EntityTypeMapping TypeName="STOCKPRODUCTModel.CUSTOMER">
+            <EntityTypeMapping TypeName="STOCKTRACKINGModel.CUSTOMER">
               <MappingFragment StoreEntitySet="CUSTOMER">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
@@ -137,7 +137,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRODUCTs">
-            <EntityTypeMapping TypeName="STOCKPRODUCTModel.PRODUCT">
+            <EntityTypeMapping TypeName="STOCKTRACKINGModel.PRODUCT">
               <MappingFragment StoreEntitySet="PRODUCT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -150,7 +150,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SALES">
-            <EntityTypeMapping TypeName="STOCKPRODUCTModel.SALE">
+            <EntityTypeMapping TypeName="STOCKTRACKINGModel.SALE">
               <MappingFragment StoreEntitySet="SALES">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />

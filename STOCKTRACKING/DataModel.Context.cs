@@ -13,10 +13,10 @@ namespace STOCKTRACKING
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class STOCKPRODUCTEntities : DbContext
+    public partial class STOCKTRACKINGEntities : DbContext
     {
-        public STOCKPRODUCTEntities()
-            : base("name=STOCKPRODUCTEntities")
+        public STOCKTRACKINGEntities()
+            : base("name=STOCKTRACKINGEntities")
         {
         }
     

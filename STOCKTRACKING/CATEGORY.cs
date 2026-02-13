@@ -17,6 +17,6 @@ namespace STOCKTRACKING
         public int ID { get; set; }
         public string CategoryName { get; set; }
         public bool isDeleted { get; set; }
-        public Nullable<System.DateTime> DeletedDate { get; set; }
+        public Nullable<System.DateTime> DeleteDate { get; set; }
     }
 }
