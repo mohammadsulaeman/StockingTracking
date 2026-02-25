@@ -16,13 +16,13 @@ namespace STOCKTRACKING.DAL.DAO
             {
                 if(entity.ID != 0)
                 {
-                    SALE sale = db.SALES.First(x => x.ID == entity.ID);
+                    SALE sale = db.SALEs.First(x => x.ID == entity.ID);
                     sale.isDeleted = true;
                     sale.DeletedDate = DateTime.Today;
                     db.SaveChanges();
                 }else if(entity.ProductID != 0)
                 {
-                    List<SALE> sales = db.SALES.Where(x => x.ProductID == entity.ProductID).ToList();
+                    List<SALE> sales = db.SALEs.Where(x => x.ProductID == entity.ProductID).ToList();
                     foreach(var item in sales)
                     {
                         item.isDeleted = true;
@@ -31,7 +31,7 @@ namespace STOCKTRACKING.DAL.DAO
                     db.SaveChanges();
                 }else if(entity.CustomerID != 0)
                 {
-                    List<SALE> sales = db.SALES.Where(x => x.CustomerID == entity.CustomerID).ToList();
+                    List<SALE> sales = db.SALEs.Where(x => x.CustomerID == entity.CustomerID).ToList();
                     foreach (var item in sales)
                     {
                         item.isDeleted = true;
@@ -51,7 +51,7 @@ namespace STOCKTRACKING.DAL.DAO
         {
             try
             {
-                SALE sale = db.SALES.First(x => x.ID == ID);
+                SALE sale = db.SALEs.First(x => x.ID == ID);
                 sale.isDeleted = false;
                 sale.DeletedDate = null;
                 db.SaveChanges();
@@ -66,7 +66,7 @@ namespace STOCKTRACKING.DAL.DAO
         {
             try
             {
-                db.SALES.Add(entity);
+                db.SALEs.Add(entity);
                 db.SaveChanges();
                 return true;
             }catch(Exception ex)
@@ -80,7 +80,7 @@ namespace STOCKTRACKING.DAL.DAO
             try
             {
                 List<SalesDetailDTO> sales = new List<SalesDetailDTO>();
-                var list = (from s in db.SALES.Where(x => x.isDeleted == false)
+                var list = (from s in db.SALEs.Where(x => x.isDeleted == false)
                             join p in db.PRODUCTs on s.ProductID equals p.ID
                             join c in db.CUSTOMERs on s.CustomerID equals c.ID
                             join category in db.CATEGORies on s.CategoryID equals category.ID
@@ -132,7 +132,7 @@ namespace STOCKTRACKING.DAL.DAO
             try
             {
                 List<SalesDetailDTO> sales = new List<SalesDetailDTO>();
-                var list = (from s in db.SALES.Where(x => x.isDeleted == isDeleted)
+                var list = (from s in db.SALEs.Where(x => x.isDeleted == isDeleted)
                             join p in db.PRODUCTs on s.ProductID equals p.ID
                             join c in db.CUSTOMERs on s.CustomerID equals c.ID
                             join category in db.CATEGORies on s.CategoryID equals category.ID
@@ -178,7 +178,7 @@ namespace STOCKTRACKING.DAL.DAO
         {
             try
             {
-                SALE sale = db.SALES.First(x => x.ID == entity.ID);
+                SALE sale = db.SALEs.First(x => x.ID == entity.ID);
                 sale.ProductSalesAmount = entity.ProductSalesAmount;
                 db.SaveChanges();
                 return true;

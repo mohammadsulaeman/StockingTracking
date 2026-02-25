@@ -5,9 +5,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar(max)" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
-    <Property Name="DeleteDate" Type="date" />
+    <Property Name="DeletedDate" Type="datetime" />
   </EntityType>
   <EntityType Name="CUSTOMER">
     <Key>
@@ -16,21 +16,21 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerName" Type="varchar(max)" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
-    <Property Name="DeletedDate" Type="date" />
+    <Property Name="DeletedDate" Type="datetime" />
   </EntityType>
   <EntityType Name="PRODUCT">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CategoryID" Type="int" Nullable="false" />
     <Property Name="StockAmount" Type="int" Nullable="false" />
     <Property Name="Price" Type="int" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
-    <Property Name="DeletedDate" Type="date" />
+    <Property Name="DeletedDate" Type="datetime" />
   </EntityType>
-  <EntityType Name="SALES">
+  <EntityType Name="SALE">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -40,14 +40,14 @@
     <Property Name="CategoryID" Type="int" Nullable="false" />
     <Property Name="ProductSalesAmount" Type="int" Nullable="false" />
     <Property Name="ProductSalesPrice" Type="int" Nullable="false" />
-    <Property Name="SalesDate" Type="date" Nullable="false" />
+    <Property Name="SalesDate" Type="datetime" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
-    <Property Name="DeletedDate" Type="date" />
+    <Property Name="DeletedDate" Type="datetime" />
   </EntityType>
   <EntityContainer Name="STOCKTRACKINGModelStoreContainer">
     <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SALES" EntityType="Self.SALES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SALE" EntityType="Self.SALE" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -27,7 +27,7 @@ namespace STOCKTRACKING.DAL.DAO
                     {
                         item.isDeleted = true;
                         item.DeletedDate = DateTime.Today;
-                        List<SALE> sales = db.SALES.Where(x => x.ProductID == entity.ID).ToList();
+                        List<SALE> sales = db.SALEs.Where(x => x.ProductID == entity.ID).ToList();
                         foreach(var item2 in sales)
                         {
                             item2.isDeleted = true;

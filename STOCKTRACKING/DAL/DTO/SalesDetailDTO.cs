@@ -17,7 +17,7 @@ namespace STOCKTRACKING.DAL.DTO
         public int CategoryID { get; set; }
         public int SalesAmount { get; set; }
         public int Price { get; set; }
-        public DateTime SalesDate { get; set; }
+        public DateTime? SalesDate { get; set; }
         public int StockAmount { get; set; }
         public int SalesID { get; set; }
         public bool isCategoryDeleted { get; set; }

@@ -28,6 +28,6 @@ namespace STOCKTRACKING
         public virtual DbSet<CATEGORY> CATEGORies { get; set; }
         public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
-        public virtual DbSet<SALE> SALES { get; set; }
+        public virtual DbSet<SALE> SALEs { get; set; }
     }
 }

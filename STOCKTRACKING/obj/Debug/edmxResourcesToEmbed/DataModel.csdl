@@ -5,9 +5,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-    <Property Name="DeleteDate" Type="DateTime" Precision="0" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="CUSTOMER">
     <Key>
@@ -16,19 +16,19 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-    <Property Name="DeletedDate" Type="DateTime" Precision="0" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PRODUCT">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CategoryID" Type="Int32" Nullable="false" />
     <Property Name="StockAmount" Type="Int32" Nullable="false" />
     <Property Name="Price" Type="Int32" Nullable="false" />
     <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-    <Property Name="DeletedDate" Type="DateTime" Precision="0" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="SALE">
     <Key>
@@ -40,14 +40,14 @@
     <Property Name="CategoryID" Type="Int32" Nullable="false" />
     <Property Name="ProductSalesAmount" Type="Int32" Nullable="false" />
     <Property Name="ProductSalesPrice" Type="Int32" Nullable="false" />
-    <Property Name="SalesDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SalesDate" Type="DateTime" Precision="3" />
     <Property Name="isDeleted" Type="Boolean" Nullable="false" />
-    <Property Name="DeletedDate" Type="DateTime" Precision="0" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityContainer Name="STOCKTRACKINGEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
     <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
-    <EntitySet Name="SALES" EntityType="Self.SALE" />
+    <EntitySet Name="SALEs" EntityType="Self.SALE" />
   </EntityContainer>
 </Schema>

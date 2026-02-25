@@ -17,7 +17,7 @@ namespace STOCKTRACKING.DAL.DAO
             {
                 CATEGORY category = db.CATEGORies.First(x => x.ID == entity.ID);
                 category.isDeleted = true;
-                category.DeleteDate = DateTime.Today;
+                category.DeletedDate = DateTime.Today;
                 db.SaveChanges();
                 return true;
             }catch(Exception ex)
@@ -32,7 +32,7 @@ namespace STOCKTRACKING.DAL.DAO
             {
                 CATEGORY category = db.CATEGORies.First(x => x.ID == ID);
                 category.isDeleted = false;
-                category.DeleteDate = null;
+                category.DeletedDate = null;
                 db.SaveChanges();
                 return true;
             }catch(Exception ex)
